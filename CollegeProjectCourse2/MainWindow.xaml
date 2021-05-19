@@ -5,8 +5,131 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CollegeProjectCourse2"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="595" Width="900" MinWidth="900" MinHeight="480" ResizeMode="NoResize" Closing="Window_Closing">
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="155*"></RowDefinition>
+            <RowDefinition Height="149*"></RowDefinition>
+            <RowDefinition Height="115*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="127*"></ColumnDefinition>
+            <ColumnDefinition Width="142*"></ColumnDefinition>
+            <ColumnDefinition Width="127*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Image Grid.Column="0" Margin="0" Source="original.gif" Grid.ColumnSpan="3" Grid.RowSpan="3" Stretch="Fill" />
+        <StackPanel Grid.Column="1" Grid.Row="1" UseLayoutRounding="False" HorizontalAlignment="Center" VerticalAlignment="Center" Width="262">
+            <Button Content="Начать игру" FontSize="16" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Height="30" />
+            <Button Content="Просмотреть результаты игр" FontSize="16" Height="30" />
+            <Button Content="Создать персонажа" FontSize="16" Height="30" Click="Button_Click_1" />
+            <Button Content="Просмотреть персонажей" FontSize="16" Height="30" Click="Button_Click_3" />
+            <Button Content="Выход" FontSize="16" Click="Button_Click" Height="30" />
+        </StackPanel>
+        <Image Grid.Column="1" Margin="0" Source="sample-logo.png"/>
+        <Grid x:Name="createUserMenu" ShowGridLines="True" Grid.ColumnSpan="3" Grid.RowSpan="3">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50*"></RowDefinition>
+                <RowDefinition Height="47*"></RowDefinition>
+                <RowDefinition Height="322*"/>
+                <RowDefinition Height="50*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="71*"></ColumnDefinition>
+                <ColumnDefinition Width="379*"></ColumnDefinition>
+                <ColumnDefinition Width="371*"/>
+                <ColumnDefinition Width="71*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Rectangle Fill="#FFF4F4F5" Stroke="Black" Grid.Column="1" Grid.Row="1" Grid.RowSpan="2" Grid.ColumnSpan="2"/>
+            <Image Grid.Column="1" HorizontalAlignment="Left" Height="100" Margin="58,19,0,0" Grid.Row="2" VerticalAlignment="Top" Width="100" Source="sample-logo.png" Stretch="Fill"/>
+            <TextBox x:Name="createName" Grid.Column="1" Height="23" Margin="209,45,0,0" Grid.Row="2" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" HorizontalAlignment="Left"/>
+            <StackPanel Grid.Column="1" HorizontalAlignment="Left" Height="32" Margin="233,171,0,0" Grid.Row="2" VerticalAlignment="Top" Width="120" RenderTransformOrigin="0.517,0.515"/>
+            <Label Content="Создание персонажа" HorizontalContentAlignment="Center" Grid.Column="1" Margin="281,10,280,0" Grid.Row="1" VerticalContentAlignment="Center" VerticalAlignment="Top" FontSize="16" Height="31" Grid.ColumnSpan="2"/>
+            <Label Content="Имя" Grid.Column="1" HorizontalAlignment="Left" Margin="209,19,0,0" Grid.Row="2" VerticalAlignment="Top" Height="26" Width="33" RenderTransformOrigin="-0.333,0.462"/>
+            <Label Content="Краткая история" Grid.Column="1" HorizontalAlignment="Left" Margin="209,68,0,0" Grid.Row="2" VerticalAlignment="Top"/>
+            <TextBox x:Name="createHistory" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="209,94,0,0" Grid.Row="2" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+            <Label Content="Вид подвластных сил" Grid.Column="1" HorizontalAlignment="Left" Margin="209,117,0,0" Grid.Row="2" VerticalAlignment="Top"/>
+            <ComboBox x:Name="createForces" Grid.Column="1" HorizontalAlignment="Left" Margin="209,143,0,0" Grid.Row="2" VerticalAlignment="Top" Width="120">
+                <ListBoxItem Content="Черная магия"/>
+                <ListBoxItem Content="Белая магия"/>
+                <ListBoxItem Content="Ордынская"/>
+                <ListBoxItem Content="Миротворческая"/>
+                <ListBoxItem Content="Огненная"/>
+                <ListBoxItem Content="Магия на крови"/>
+            </ComboBox>
+            <CheckBox x:Name="createFire" Content="Метание фаейрбола" Grid.Column="1" HorizontalAlignment="Left" Margin="209,171,0,0" Grid.Row="2" VerticalAlignment="Top"/>
+            <CheckBox x:Name="createVamp" Content="Вампиризм" Grid.Column="1" HorizontalAlignment="Left" Margin="209,188,0,0" Grid.Row="2" VerticalAlignment="Top"/>
+            <StackPanel Grid.Column="1" HorizontalAlignment="Left" Height="31" Margin="209,229,0,0" Grid.Row="2" VerticalAlignment="Top" Width="120">
+                <RadioButton x:Name="createGender" Content="Мужской"/>
+                <RadioButton Content="Женский"/>
+            </StackPanel>
+            <Label Content="Пол" Grid.Column="1" HorizontalAlignment="Left" Margin="209,203,0,0" Grid.Row="2" VerticalAlignment="Top"/>
+            <Label Content="Легенда" Grid.Column="1" HorizontalAlignment="Left" Margin="81,119,0,0" Grid.Row="2" VerticalAlignment="Top"/>
+            <TextBox x:Name="createLegend" Grid.Column="1" HorizontalAlignment="Left" Height="110" Margin="49,150,0,0" Grid.Row="2" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+            <StackPanel Grid.Column="1" HorizontalAlignment="Left" Height="37" Margin="68,330,0,0" Grid.Row="2" VerticalAlignment="Top" Width="261" Orientation="Horizontal">
+                <Button Content="Отмена" Width="75" Click="Button_Click_2"/>
+                <Button Content="Проверить имя" Width="100" Click="Button_Click_6"/>
+                <Button Content="Создать" Width="75" Click="Button_Click_5"/>
+            </StackPanel>
+            <Label Content="Происхождение" Grid.Column="1" HorizontalAlignment="Left" Margin="209,260,0,0" Grid.Row="2" VerticalAlignment="Top"/>
+            <ComboBox x:Name="createFamily" Grid.Column="1" HorizontalAlignment="Left" Margin="209,286,0,0" Grid.Row="2" VerticalAlignment="Top" Width="120">
+                <ListBoxItem Content="Монахи"/>
+                <ListBoxItem Content="Рыцари"/>
+                <ListBoxItem Content="Колдуны"/>
+                <ListBoxItem Content="Еритеки иговы"/>
+                <ListBoxItem Content="Люди"/>
+                <ListBoxItem Content="Орки"/>
+                <ListBoxItem Content="Друиды"/>
+                <ListBoxItem Content="Астралы"/>
+            </ComboBox>
+            <Image Grid.Column="2" HorizontalAlignment="Left" Height="100" Margin="10,15,0,0" Grid.Row="2" VerticalAlignment="Top" Width="100" Source="sample-logo.png" Stretch="Fill"/>
+            <Image Grid.Column="2" HorizontalAlignment="Left" Height="100" Margin="262,17,0,0" Grid.Row="2" VerticalAlignment="Top" Width="100" Source="sample-logo.png" Stretch="Fill"/>
+            <Image Grid.Column="2" HorizontalAlignment="Left" Height="100" Margin="137,17,0,0" Grid.Row="2" VerticalAlignment="Top" Width="100" Source="sample-logo.png" Stretch="Fill"/>
+            <Image Grid.Column="2" HorizontalAlignment="Left" Height="100" Margin="10,141,0,0" Grid.Row="2" VerticalAlignment="Top" Width="100" Source="sample-logo.png" Stretch="Fill"/>
+            <Image Grid.Column="2" HorizontalAlignment="Left" Height="100" Margin="262,143,0,0" Grid.Row="2" VerticalAlignment="Top" Width="100" Source="sample-logo.png" Stretch="Fill"/>
+            <Image Grid.Column="2" HorizontalAlignment="Left" Height="100" Margin="137,143,0,0" Grid.Row="2" VerticalAlignment="Top" Width="100" Source="sample-logo.png" Stretch="Fill"/>
+            <Image Grid.Column="2" HorizontalAlignment="Left" Height="100" Margin="10,265,0,0" Grid.Row="2" VerticalAlignment="Top" Width="100" Source="sample-logo.png" Stretch="Fill"/>
+            <Image Grid.Column="2" HorizontalAlignment="Left" Height="100" Margin="262,267,0,0" Grid.Row="2" VerticalAlignment="Top" Width="100" Source="sample-logo.png" Stretch="Fill"/>
+            <Image Grid.Column="2" HorizontalAlignment="Left" Height="100" Margin="137,267,0,0" Grid.Row="2" VerticalAlignment="Top" Width="100" Source="sample-logo.png" Stretch="Fill"/>
+        </Grid>
+        <Grid x:Name="viewerUserMenu" ShowGridLines="True" Grid.ColumnSpan="3" Grid.RowSpan="3" Margin="0,0,-0.288,0" Visibility="Hidden">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50*"/>
+                <RowDefinition Height="47*"/>
+                <RowDefinition Height="322*"/>
+                <RowDefinition Height="50*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="71*"/>
+                <ColumnDefinition Width="379*"/>
+                <ColumnDefinition Width="371*"/>
+                <ColumnDefinition Width="71*"/>
+            </Grid.ColumnDefinitions>
+            <Rectangle Fill="#FFF4F4F5" Stroke="Black" Grid.Column="1" Grid.Row="1" Grid.RowSpan="2" Grid.ColumnSpan="2"/>
+            <Image Grid.Column="1" HorizontalAlignment="Left" Height="100" Margin="58,19,0,0" Grid.Row="2" VerticalAlignment="Top" Width="100" Source="sample-logo.png" Stretch="Fill"/>
+            <StackPanel Grid.Column="1" HorizontalAlignment="Left" Height="32" Margin="233,171,0,0" Grid.Row="2" VerticalAlignment="Top" Width="120" RenderTransformOrigin="0.517,0.515"/>
+            <Label Content="Просмотр персонажей" HorizontalContentAlignment="Center" Grid.Column="1" Margin="281,10,280,0" Grid.Row="1" VerticalContentAlignment="Center" VerticalAlignment="Top" FontSize="16" Height="31" Grid.ColumnSpan="2"/>
+            <Label Content="Имя" Grid.Column="1" HorizontalAlignment="Left" Margin="209,19,0,0" Grid.Row="2" VerticalAlignment="Top" Height="26" Width="33" RenderTransformOrigin="-0.333,0.462"/>
+            <Label Content="Краткая история" Grid.Column="1" HorizontalAlignment="Left" Margin="209,68,0,0" Grid.Row="2" VerticalAlignment="Top"/>
+            <Label Content="Вид подвластных сил" Grid.Column="1" HorizontalAlignment="Left" Margin="209,117,0,0" Grid.Row="2" VerticalAlignment="Top"/>
+            <CheckBox Content="Метание фаейрбола" Grid.Column="1" HorizontalAlignment="Left" Margin="209,171,0,0" Grid.Row="2" VerticalAlignment="Top"/>
+            <CheckBox Content="Вампиризм" Grid.Column="1" HorizontalAlignment="Left" Margin="209,188,0,0" Grid.Row="2" VerticalAlignment="Top"/>
+            <StackPanel Grid.Column="1" HorizontalAlignment="Left" Height="31" Margin="209,229,0,0" Grid.Row="2" VerticalAlignment="Top" Width="120">
+                <RadioButton Content="Мужской"/>
+                <RadioButton Content="Женский"/>
+            </StackPanel>
+            <Label Content="Пол" Grid.Column="1" HorizontalAlignment="Left" Margin="209,203,0,0" Grid.Row="2" VerticalAlignment="Top"/>
+            <Label Content="Легенда" Grid.Column="1" HorizontalAlignment="Left" Margin="81,119,0,0" Grid.Row="2" VerticalAlignment="Top"/>
+            <StackPanel Grid.Column="1" HorizontalAlignment="Left" Height="37" Margin="68,330,0,0" Grid.Row="2" VerticalAlignment="Top" Width="261" Orientation="Horizontal">
+                <Button Content="Выйти" Width="75" Click="Button_Click_4"/>
+                <Button Content="Удалить" Width="100" FontSize="16"/>
+                <Button Content="Далее" Width="75"/>
+            </StackPanel>
+            <Label Content="Происхождение" Grid.Column="1" HorizontalAlignment="Left" Margin="209,260,0,0" Grid.Row="2" VerticalAlignment="Top"/>
+            <Label x:Name="viewName" Content="Имя" Grid.Column="1" HorizontalAlignment="Left" Margin="209,45,0,0" Grid.Row="2" VerticalAlignment="Top" Height="26" Width="33" RenderTransformOrigin="-0.333,0.462"/>
+            <Label x:Name="viewHistory" Content="Краткая история" Grid.Column="1" HorizontalAlignment="Left" Margin="209,93,0,0" Grid.Row="2" VerticalAlignment="Top"/>
+            <Label x:Name="viewForce" Content="Вид подвластных сил" Grid.Column="1" HorizontalAlignment="Left" Margin="209,143,0,0" Grid.Row="2" VerticalAlignment="Top"/>
+            <Label x:Name="viewFamily" Content="Происхождение" Grid.Column="1" HorizontalAlignment="Left" Margin="209,286,0,0" Grid.Row="2" VerticalAlignment="Top"/>
+            <Label x:Name="viewLegend" Content="Легенда" Grid.Column="1" HorizontalAlignment="Left" Margin="81,150,0,0" Grid.Row="2" VerticalAlignment="Top"/>
+        </Grid>
     </Grid>
 </Window>
