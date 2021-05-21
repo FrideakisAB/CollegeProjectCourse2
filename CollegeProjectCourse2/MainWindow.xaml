@@ -26,7 +26,7 @@
             <Button Content="Выход" FontSize="16" Click="Button_Click" Height="30" />
         </StackPanel>
         <Image Grid.Column="1" Margin="0" Source="sample-logo.png"/>
-        <Grid x:Name="createUserMenu" ShowGridLines="True" Grid.ColumnSpan="3" Grid.RowSpan="3">
+        <Grid x:Name="createUserMenu" Grid.ColumnSpan="3" Grid.RowSpan="3" Visibility="Hidden">
             <Grid.RowDefinitions>
                 <RowDefinition Height="50*"></RowDefinition>
                 <RowDefinition Height="47*"></RowDefinition>
@@ -60,7 +60,7 @@
             <CheckBox x:Name="createVamp" Content="Вампиризм" Grid.Column="1" HorizontalAlignment="Left" Margin="209,188,0,0" Grid.Row="2" VerticalAlignment="Top"/>
             <StackPanel Grid.Column="1" HorizontalAlignment="Left" Height="31" Margin="209,229,0,0" Grid.Row="2" VerticalAlignment="Top" Width="120">
                 <RadioButton x:Name="createGender" Content="Мужской"/>
-                <RadioButton Content="Женский"/>
+                <RadioButton x:Name="createWGender" Content="Женский"/>
             </StackPanel>
             <Label Content="Пол" Grid.Column="1" HorizontalAlignment="Left" Margin="209,203,0,0" Grid.Row="2" VerticalAlignment="Top"/>
             <Label Content="Легенда" Grid.Column="1" HorizontalAlignment="Left" Margin="81,119,0,0" Grid.Row="2" VerticalAlignment="Top"/>
@@ -91,7 +91,7 @@
             <Image Grid.Column="2" HorizontalAlignment="Left" Height="100" Margin="262,267,0,0" Grid.Row="2" VerticalAlignment="Top" Width="100" Source="sample-logo.png" Stretch="Fill"/>
             <Image Grid.Column="2" HorizontalAlignment="Left" Height="100" Margin="137,267,0,0" Grid.Row="2" VerticalAlignment="Top" Width="100" Source="sample-logo.png" Stretch="Fill"/>
         </Grid>
-        <Grid x:Name="viewerUserMenu" ShowGridLines="True" Grid.ColumnSpan="3" Grid.RowSpan="3" Margin="0,0,-0.288,0" Visibility="Hidden">
+        <Grid x:Name="viewerUserMenu" Grid.ColumnSpan="3" Grid.RowSpan="3" Margin="0,0,-0.288,0" Visibility="Hidden">
             <Grid.RowDefinitions>
                 <RowDefinition Height="50*"/>
                 <RowDefinition Height="47*"/>
@@ -111,25 +111,26 @@
             <Label Content="Имя" Grid.Column="1" HorizontalAlignment="Left" Margin="209,19,0,0" Grid.Row="2" VerticalAlignment="Top" Height="26" Width="33" RenderTransformOrigin="-0.333,0.462"/>
             <Label Content="Краткая история" Grid.Column="1" HorizontalAlignment="Left" Margin="209,68,0,0" Grid.Row="2" VerticalAlignment="Top"/>
             <Label Content="Вид подвластных сил" Grid.Column="1" HorizontalAlignment="Left" Margin="209,117,0,0" Grid.Row="2" VerticalAlignment="Top"/>
-            <CheckBox Content="Метание фаейрбола" Grid.Column="1" HorizontalAlignment="Left" Margin="209,171,0,0" Grid.Row="2" VerticalAlignment="Top"/>
-            <CheckBox Content="Вампиризм" Grid.Column="1" HorizontalAlignment="Left" Margin="209,188,0,0" Grid.Row="2" VerticalAlignment="Top"/>
+            <CheckBox x:Name="viewFireball" Content="Метание фаейрбола" Grid.Column="1" HorizontalAlignment="Left" Margin="209,171,0,0" Grid.Row="2" VerticalAlignment="Top" IsEnabled="False"/>
+            <CheckBox x:Name="viewVamp" Content="Вампиризм" Grid.Column="1" HorizontalAlignment="Left" Margin="209,188,0,0" Grid.Row="2" VerticalAlignment="Top" IsEnabled="False"/>
             <StackPanel Grid.Column="1" HorizontalAlignment="Left" Height="31" Margin="209,229,0,0" Grid.Row="2" VerticalAlignment="Top" Width="120">
-                <RadioButton Content="Мужской"/>
-                <RadioButton Content="Женский"/>
+                <RadioButton x:Name="viewMen" Content="Мужской" IsEnabled="False"/>
+                <RadioButton x:Name="viewWomen" Content="Женский" IsEnabled="False"/>
             </StackPanel>
             <Label Content="Пол" Grid.Column="1" HorizontalAlignment="Left" Margin="209,203,0,0" Grid.Row="2" VerticalAlignment="Top"/>
             <Label Content="Легенда" Grid.Column="1" HorizontalAlignment="Left" Margin="81,119,0,0" Grid.Row="2" VerticalAlignment="Top"/>
             <StackPanel Grid.Column="1" HorizontalAlignment="Left" Height="37" Margin="68,330,0,0" Grid.Row="2" VerticalAlignment="Top" Width="261" Orientation="Horizontal">
                 <Button Content="Выйти" Width="75" Click="Button_Click_4"/>
-                <Button Content="Удалить" Width="100" FontSize="16"/>
-                <Button Content="Далее" Width="75"/>
+                <Button Content="Удалить" Width="100" FontSize="16" Click="Button_Click_7"/>
+                <Button Content="Далее" Width="75" Click="Button_Click_8"/>
             </StackPanel>
             <Label Content="Происхождение" Grid.Column="1" HorizontalAlignment="Left" Margin="209,260,0,0" Grid.Row="2" VerticalAlignment="Top"/>
-            <Label x:Name="viewName" Content="Имя" Grid.Column="1" HorizontalAlignment="Left" Margin="209,45,0,0" Grid.Row="2" VerticalAlignment="Top" Height="26" Width="33" RenderTransformOrigin="-0.333,0.462"/>
-            <Label x:Name="viewHistory" Content="Краткая история" Grid.Column="1" HorizontalAlignment="Left" Margin="209,93,0,0" Grid.Row="2" VerticalAlignment="Top"/>
-            <Label x:Name="viewForce" Content="Вид подвластных сил" Grid.Column="1" HorizontalAlignment="Left" Margin="209,143,0,0" Grid.Row="2" VerticalAlignment="Top"/>
-            <Label x:Name="viewFamily" Content="Происхождение" Grid.Column="1" HorizontalAlignment="Left" Margin="209,286,0,0" Grid.Row="2" VerticalAlignment="Top"/>
-            <Label x:Name="viewLegend" Content="Легенда" Grid.Column="1" HorizontalAlignment="Left" Margin="81,150,0,0" Grid.Row="2" VerticalAlignment="Top"/>
+            <Label x:Name="viewName" Content="" Grid.Column="1" HorizontalAlignment="Left" Margin="233,45,0,0" Grid.Row="2" VerticalAlignment="Top" Height="26" Width="109" RenderTransformOrigin="-0.333,0.462"/>
+            <Label x:Name="viewHistory" Content="" Grid.Column="1" HorizontalAlignment="Left" Margin="233,93,0,0" Grid.Row="2" VerticalAlignment="Top" Width="109"/>
+            <Label x:Name="viewForce" Content="" Grid.Column="1" HorizontalAlignment="Left" Margin="233,143,0,0" Grid.Row="2" VerticalAlignment="Top" Width="109"/>
+            <Label x:Name="viewFamily" Content="" Grid.Column="1" HorizontalAlignment="Left" Margin="233,286,0,0" Grid.Row="2" VerticalAlignment="Top" Width="103"/>
+            <Label x:Name="viewLegend" Content="" Grid.Column="1" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Margin="58,150,0,0" Grid.Row="2" VerticalAlignment="Top" Width="100" Height="110"/>
+            <DataGrid x:Name="playersList" Grid.Column="2" HorizontalAlignment="Left" Height="369" Margin="10,10,0,0" Grid.Row="2" VerticalAlignment="Top" Width="352" IsReadOnly="True" SelectionChanged="playersList_SelectionChanged"/>
         </Grid>
     </Grid>
 </Window>
