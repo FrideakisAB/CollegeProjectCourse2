@@ -26,9 +26,24 @@ namespace CollegeProjectCourse2
 
         public MainWindow()
         {
-            string dbFilePath = System.IO.Directory.GetCurrentDirectory() + "\\Database.mdf";
-            connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=" + dbFilePath + ";Integrated Security=True");
-            connection.Open();
+            try
+            {
+                string dbFilePath = System.IO.Directory.GetCurrentDirectory() + "\\Database.mdf";
+                connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=" + dbFilePath + ";Integrated Security=True");
+                connection.Open();
+            }
+            catch (Exception ex)
+            {
+                string messageBoxText = ex.Message;
+                string caption = "Запуск";
+                MessageBoxButton button = MessageBoxButton.OK;
+                MessageBoxImage icon = MessageBoxImage.Error;
+                MessageBoxResult result;
+
+                result = MessageBox.Show(messageBoxText, caption, button, icon, MessageBoxResult.Yes);
+
+                this.Close();
+            }
 
             InitializeComponent();
         }
